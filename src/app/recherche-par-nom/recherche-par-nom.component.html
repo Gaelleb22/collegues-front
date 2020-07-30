@@ -1,11 +1,19 @@
-<div class="row" style="align-items: center;">
-  <label for="recherche" style="font-size: larger; margin-right: 20px;">Recherche par nom</label>
-  <input type="text" id="recherche" name="recherche" style="margin-right: 20px; margin-top: 20px;">
-  <button class="btn btn-outline-secondary mr-2" (click)="rechercher()" style="margin-top: 20px;">Rechercher</button>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Recherche par nom</h5>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="rechercher()">Rechercher</button>
+      </div>
+    </div>
 
-</div>
-<div *ngIf="recherche" class="row" style="margin-top: 20px;">
-    <ul>
-      <li *ngFor="let obj of matriculesMock" style="text-decoration: none; list-style-type: cjk-ideographic;">{{obj.matricule}}</li>
-    </ul>
+
+    <div *ngIf="recherche" class="row" style="margin-top: 20px;">
+      <ul>
+        <li *ngFor="let obj of matriculesMock" style="text-decoration: none; list-style-type: cjk-ideographic;">{{obj.matricule}}</li>
+      </ul>
+    </div>
   </div>
+</div>
+
