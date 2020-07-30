@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from '../models/Collegue';
 import { matriculesMock } from '../mock/matricules.mock';
 
 @Component({
@@ -9,7 +8,6 @@ import { matriculesMock } from '../mock/matricules.mock';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  @Input() col: Collegue;
   matriculesMock = matriculesMock;
   recherche = false;
 

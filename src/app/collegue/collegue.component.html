@@ -1,9 +1,9 @@
 <!--Informations du collègue-->
 <div class="row">
-  <div class="col-md-4 col-sm-5">
-    <img src="{{col.photoUrl}}" class="img-fluid rounded" style="width: 100%;" alt="Yuki-chan">
+  <div class="col-12 col-md-4">
+    <img src="{{col.photoUrl}}" class="img-fluid rounded" alt="Yuki-chan">
   </div>
-  <div class="col-md-8 col-sm-6" style="font-size: larger;">
+  <div class="col-12 col-md-8">
     <div class="row">
       <div class="col">
         <p>Matricule :</p>
@@ -28,7 +28,7 @@
         <p>{{col.prenom}}</p>
       </div>
     </div>
-    <div *ngIf="!modif" class="row">
+    <div class="row">
       <div class="col">
         <p >Date de naissance : </p>
       </div>
@@ -36,28 +36,27 @@
         <p>{{col.dateDeNaissance | date : 'mediumDate'}}</p>
       </div>
     </div>
-    <div *ngIf="!modif" class="row">
+    <div class="row">
       <div class="col">
         <p>Email : </p>
       </div>
-      <div class="col">
+      <div *ngIf="!modif" class="col">
         <p>{{col.email}}</p>
       </div>
-    </div>
-    <div *ngIf="modif" class="row">
-      <div class="col">
-        <label for="date">Date de naissance : </label>
-      </div>
-      <div class="col">
-        <input type="text" id="date" name="date" style="margin: 10px;">
+      <div *ngIf="modif" class="col">
+        <input type="text" id="email" name="email">
       </div>
     </div>
-    <div *ngIf="modif" class="row">
+
+    <div class="row">
       <div class="col">
-        <label for="email">Email : </label>
+        <label for="email">PhotoUrl : </label>
       </div>
-      <div class="col">
-        <input type="text" id="email" name="email" style="margin: 10px;">
+      <div *ngIf="!modif" class="col">
+        <p>{{col.photoUrl}}</p>
+      </div>
+      <div *ngIf="modif" class="col">
+        <input type="text" id="email" name="email">
       </div>
     </div>
 
@@ -65,10 +64,10 @@
 </div>
 
 <!--Boutons-->
-<div class="row" style="margin-top: 50px; text-align: center;">
+<div class="row">
   <div class="col">
     <button *ngIf="!modif" class="btn btn-outline-secondary mr-2" (click)="modifier()">Modifier</button>
-    <button *ngIf="modif" class="btn btn-outline-secondary mr-2">Valider</button>
+    <button *ngIf="modif" class="btn btn-outline-secondary mr-2" (click)="valider()">Valider</button>
   </div>
   <div *ngIf="!modif" class="col">
     <button class="btn btn-outline-secondary mr-2" (click)="nouveauCollegue()">Créer un nouveau collègue</button>

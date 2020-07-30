@@ -1,5 +1,4 @@
-<!--<div class="card">
-  <div class="card-body">-->
+
     <h5>Recherche par nom</h5>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" aria-describedby="button-addon2">
@@ -9,11 +8,10 @@
     </div>
 
 
-    <div *ngIf="recherche" class="row" style="margin-top: 20px;">
+    <div *ngIf="recherche">
       <ul>
-        <li *ngFor="let obj of matriculesMock" style="text-decoration: none; list-style-type: cjk-ideographic;">{{obj.matricule}}</li>
+        <li *ngFor="let obj of matriculesMock">{{obj.matricule}}</li>
       </ul>
     </div>
-  <!--</div>
-</div>-->
+
 
