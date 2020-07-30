@@ -1,0 +1,11 @@
+<div class="row" style="align-items: center;">
+  <label for="recherche" style="font-size: larger; margin-right: 20px;">Recherche par nom</label>
+  <input type="text" id="recherche" name="recherche" style="margin-right: 20px; margin-top: 20px;">
+  <button class="btn btn-outline-secondary mr-2" (click)="rechercher()" style="margin-top: 20px;">Rechercher</button>
+
+</div>
+<div *ngIf="recherche" class="row" style="margin-top: 20px;">
+    <ul>
+      <li *ngFor="let obj of matriculesMock" style="text-decoration: none; list-style-type: cjk-ideographic;">{{obj.matricule}}</li>
+    </ul>
+  </div>

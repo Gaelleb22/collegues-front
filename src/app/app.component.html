@@ -1,5 +1,15 @@
 <div class="container">
-  <app-collegue [col]="collegueMock"></app-collegue>
+  <h1 style="font-family: Cambria, Cochin, Georgia; text-align: center;">Administration Collegue</h1>
+
+  <div class="row">
+    <div class="col" style="margin: 30px;">
+      <app-recherche-par-nom></app-recherche-par-nom>
+    </div>
+    <div class="col">
+      <app-collegue [col]="collegueMock"></app-collegue>
+    </div>
+  </div>
+
 </div>
 
 

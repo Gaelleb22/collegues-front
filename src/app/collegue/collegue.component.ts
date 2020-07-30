@@ -10,8 +10,7 @@ import { Collegue } from '../models/Collegue';
 export class CollegueComponent implements OnInit {
 
   @Input() col: Collegue;
-  sansModif = true;
-  modif = null;
+  modif = false;
 
   constructor() {
    }
@@ -21,7 +20,6 @@ export class CollegueComponent implements OnInit {
 
   modifier(): void{
     this.modif = true;
-    this.sansModif = null;
     console.log('Modification du collègue');
   }
 

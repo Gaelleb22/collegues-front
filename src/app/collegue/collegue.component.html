@@ -1,28 +1,76 @@
-<h1 style="font-family: Cambria, Cochin, Georgia; text-align: center;">{{col.prenom}} {{col.nom}}</h1>
+<!--Informations du collègue-->
 <div class="row">
   <div class="col-md-3 col-sm-5">
     <img src="{{col.photoUrl}}" class="img-fluid rounded" style="width: 100%;" alt="Yuki-chan">
   </div>
   <div class="col-md-9 col-sm-6" style="font-size: larger;">
-    <p>Matricule : {{col.matricule}}</p>
-    <p>Nom : {{col.nom}}</p>
-    <p>Prenom : {{col.prenom}}</p>
-    <p *ngIf="sansModif">Date de naissance : {{col.dateDeNaissance}}</p>
-    <p *ngIf="sansModif">Email : {{col.email}}</p>
-    <form *ngIf="modif" action="">
-      <label for="date">Date de naissance : </label>
-      <input type="text" id="date" name="date" style="margin-left: 10px;"><br>
-      <label for="email">Email : </label>
-      <input type="text" id="email" name="email" style="margin-left: 10px;">
-    </form>
+    <div class="row">
+      <div class="col">
+        <p>Matricule :</p>
+      </div>
+      <div class="col">
+        <p>{{col.matricule}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>Nom :</p>
+      </div>
+      <div class="col">
+        <p>{{col.nom | uppercase}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>Prenom : </p>
+      </div>
+      <div class="col">
+        <p>{{col.prenom}}</p>
+      </div>
+    </div>
+    <div *ngIf="!modif" class="row">
+      <div class="col">
+        <p >Date de naissance : </p>
+      </div>
+      <div class="col">
+        <p>{{col.dateDeNaissance | date : 'mediumDate'}}</p>
+      </div>
+    </div>
+    <div *ngIf="!modif" class="row">
+      <div class="col">
+        <p>Email : </p>
+      </div>
+      <div class="col">
+        <p>{{col.email}}</p>
+      </div>
+    </div>
+    <div *ngIf="modif" class="row">
+      <div class="col">
+        <label for="date">Date de naissance : </label>
+      </div>
+      <div class="col">
+        <input type="text" id="date" name="date" style="margin: 10px;">
+      </div>
+    </div>
+    <div *ngIf="modif" class="row">
+      <div class="col">
+        <label for="email">Email : </label>
+      </div>
+      <div class="col">
+        <input type="text" id="email" name="email" style="margin: 10px;">
+      </div>
+    </div>
+
   </div>
 </div>
+
+<!--Boutons-->
 <div class="row" style="margin-top: 50px; text-align: center;">
   <div class="col">
-    <button *ngIf="sansModif" class="btn btn-outline-secondary mr-2" (click)="modifier()">Modifier</button>
+    <button *ngIf="!modif" class="btn btn-outline-secondary mr-2" (click)="modifier()">Modifier</button>
     <button *ngIf="modif" class="btn btn-outline-secondary mr-2">Valider</button>
   </div>
-  <div *ngIf="sansModif" class="col">
+  <div *ngIf="!modif" class="col">
     <button class="btn btn-outline-secondary mr-2" (click)="nouveauCollegue()">Créer un nouveau collègue</button>
   </div>
 </div>
