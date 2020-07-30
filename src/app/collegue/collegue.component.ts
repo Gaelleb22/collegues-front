@@ -10,13 +10,18 @@ import { Collegue } from '../models/Collegue';
 export class CollegueComponent implements OnInit {
 
   @Input() col: Collegue;
+  sansModif = true;
+  modif = null;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
 
   modifier(): void{
+    this.modif = true;
+    this.sansModif = null;
     console.log('Modification du collègue');
   }
 
