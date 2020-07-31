@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { matriculesMock } from '../mock/matricules.mock';
+import { Component, OnInit} from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-recherche-par-nom',
@@ -8,10 +8,10 @@ import { matriculesMock } from '../mock/matricules.mock';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  matriculesMock = matriculesMock;
+  matriculesMock = this._srv.rechercheParNom('nom');
   recherche = false;
 
-  constructor() { }
+  constructor(private _srv: DataService) { }
 
   ngOnInit(): void {
   }
