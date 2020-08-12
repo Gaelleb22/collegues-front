@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,13 +12,18 @@ import { DataService } from '../services/data.service';
 
 export class CollegueComponent implements OnInit {
 
-  col: Collegue = this._srv.recupererCollegueCourant();
+  col: Collegue;
+  collegueSub: Subscription;
   modif = false;
 
   constructor(private _srv: DataService) {
    }
 
   ngOnInit(): void {
+    this.collegueSub = this._srv.recupererCollegueCourant().subscribe(
+      valeur => {
+        this.col = valeur[0]; }
+    );
   }
 
   modifier(): void{

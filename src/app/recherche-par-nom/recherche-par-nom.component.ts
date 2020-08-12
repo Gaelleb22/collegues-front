@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-recherche-par-nom',
@@ -8,12 +9,24 @@ import { DataService } from '../services/data.service';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  matriculesMock = this._srv.rechercheParNom('nom');
+  matricule: string;
+  matriculeSub: Subscription;
   recherche = false;
 
   constructor(private _srv: DataService) { }
 
+  /*ngOnInit(): void {
+    this.matriculeSub = this._srv.rechercheParNom('Oddet').subscribe(
+      valeur => {
+        this.matricule = valeur[0].matricule; }
+    );
+  }*/
+
   ngOnInit(): void {
+    this.matriculeSub = this._srv.rechercheParNom('Oddet').subscribe(
+      valeur => {
+        this.matricule = valeur[0].matricule; }
+    );
   }
 
   rechercher(): void{
