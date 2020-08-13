@@ -2,3 +2,11 @@
 h1, p, li, h5 {
   font-family: cursive;
 }
+
+button#select {
+  margin-left: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  font-family: cursive;
+  border: transparent;
+}

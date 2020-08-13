@@ -1,3 +1,4 @@
+import { RechercheParNomComponent } from './../recherche-par-nom/recherche-par-nom.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
@@ -20,9 +21,12 @@ export class CollegueComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.collegueSub = this._srv.recupererCollegueCourant().subscribe(
+    this.collegueSub = this._srv.recupererCollegueCourant('A0056').subscribe(
       valeur => {
         this.col = valeur[0]; }
+    );
+    this.collegueSub = this._srv.sabonnerACollegueSelect().subscribe(
+      collegue => this.col = collegue
     );
   }
 

@@ -10,6 +10,7 @@
 
     <div *ngIf="recherche">
       <p>{{message}}</p>
+      <button id="select" *ngIf="collegue!=null" (click)="select(collegue)" data-toggle="tooltip" data-placement="top" title="Afficher les détails">{{collegue.matricule}}</button>
     </div>
 
 
