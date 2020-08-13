@@ -9,27 +9,29 @@ import { Subscription } from 'rxjs';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  matricule: string;
+  message: string;
   matriculeSub: Subscription;
   recherche = false;
 
   constructor(private _srv: DataService) { }
 
-  /*ngOnInit(): void {
-    this.matriculeSub = this._srv.rechercheParNom('Oddet').subscribe(
-      valeur => {
-        this.matricule = valeur[0].matricule; }
-    );
-  }*/
-
   ngOnInit(): void {
-    this.matriculeSub = this._srv.rechercheParNom('Oddet').subscribe(
-      valeur => {
-        this.matricule = valeur[0].matricule; }
-    );
   }
 
   rechercher(): void{
+    const saisie: string = (document.getElementById('input') as HTMLInputElement).value;
+    if (saisie === ''){
+      this.message = 'Veuillez saisir un nom';
+    }
+    else {
+      this.matriculeSub = this._srv.rechercheParNom(saisie).subscribe(
+      valeur => {
+        this.message = valeur[0].matricule; },
+        error => {
+          this.message = 'Pas de collegue à ce nom';
+        }
+    );
+    }
     this.recherche = true;
   }
 

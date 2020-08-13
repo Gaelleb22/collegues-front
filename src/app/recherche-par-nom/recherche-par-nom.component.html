@@ -1,7 +1,7 @@
 
     <h5>Recherche par nom</h5>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" aria-describedby="button-addon2">
+      <input type="text" id="input" class="form-control" value="Nom" onFocus="if (this.value=='Nom') {this.value=''}" aria-label="Nom" aria-describedby="button-addon2">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="rechercher()">Rechercher</button>
       </div>
@@ -9,10 +9,7 @@
 
 
     <div *ngIf="recherche">
-      <p>{{matricule}}</p>
-      <!--<ul>
-        <li *ngFor="let mat of matricule">{{mat}}</li>
-      </ul>-->
+      <p>{{message}}</p>
     </div>
 
 
