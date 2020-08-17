@@ -1,0 +1,70 @@
+<!--Modal-->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nouveau Collègue</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form (ngSubmit)="submit()" #monForm="ngForm">
+      <div class="col-12 col-md-8 form-group">
+        <div class="row">
+          <div class="col">
+            <p>Nom :</p>
+          </div>
+          <div class="col">
+            <input [(ngModel)]="nouveauCol.nom" class="form-control" placeholder="Nom" name="nom" #nom="ngModel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>Prenom : </p>
+          </div>
+          <div class="col">
+            <input [(ngModel)]="nouveauCol.prenoms" class="form-control" placeholder="Prénom" name="prenoms" #prenoms="ngModel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p >Date de naissance : </p>
+          </div>
+          <div class="col">
+            <input type="date" [(ngModel)]="nouveauCol.dateDeNaissance" class="form-control" name="dateNaissance" #dateNaissance="ngModel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>Email : </p>
+          </div>
+          <div class="col">
+            <input type="email" [(ngModel)]="nouveauCol.email" class="form-control" placeholder="exemple@gmail.com" name="email" #email="ngModel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>PhotoUrl : </p>
+          </div>
+          <div class="col">
+            <input [(ngModel)]="nouveauCol.photoUrl" class="form-control" placeholder="http://..." name="photo">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-outline-secondary mr-2" (click)="submit()">Valider</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-secondary mr-2" (click)="d('Cross click')">Retour</button>
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-secondary mr-2" (click)="open(content)">Créer un nouveau collègue</button>

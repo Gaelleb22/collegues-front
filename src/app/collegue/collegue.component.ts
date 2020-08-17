@@ -1,4 +1,4 @@
-import { RechercheParNomComponent } from './../recherche-par-nom/recherche-par-nom.component';
+import { CreerCollegueComponent } from './../creer-collegue/creer-collegue.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
@@ -21,7 +21,7 @@ export class CollegueComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.collegueSub = this._srv.recupererCollegueCourant('A0056').subscribe(
+    this.collegueSub = this._srv.recupererCollegueCourant('eca4db54-96fd-428a-8ae4-749d720f65d9').subscribe(
       valeur => {
         this.col = valeur[0]; }
     );
@@ -39,8 +39,6 @@ export class CollegueComponent implements OnInit {
     this.modif = false;
   }
 
-  nouveauCollegue(): void {
-    console.log('Création d\'un nouveau collègue');
-  }
+
 
 }

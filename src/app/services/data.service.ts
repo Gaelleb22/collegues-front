@@ -1,10 +1,8 @@
+import { NouveauCollegue } from './../models/NouveauCollegue';
+import { Collegue } from './../models/Collegue';
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, JsonpClientBackend, HttpErrorResponse} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
-import { matriculesMock } from '../mock/matricules.mock';
-import { collegueMock } from '../mock/collegues.mock';
-import { Collegue } from '../models/Collegue';
-import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +18,25 @@ export class DataService {
   }
 
   recupererCollegueCourant(matricule: string): Observable<Collegue>{
-    return this._http.get<Collegue>(`https://gaelle-collegues-api.herokuapp.com/${matricule}`);
+    return this._http.get<Collegue>(`https://gaelle-collegues-api.herokuapp.com/collegues/${matricule}`);
+  }
+
+  creerNouveauCollegue(collegue: NouveauCollegue): void{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    // envoie de la requête
+    this._http.post('https://gaelle-collegues-api.herokuapp.com/',
+    JSON.stringify(collegue),
+    httpOptions
+    ).subscribe((data: any) => {
+      console.log(data);
+    }, (error: HttpErrorResponse) => {
+      console.log('error', error);
+    });
   }
 
   selectionner(collegueselect: Collegue): void {

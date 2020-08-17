@@ -1,76 +1,75 @@
 <!--Informations du collègue-->
-<div class="row">
-  <div class="col-12 col-md-4">
-    <img src="{{col.photoUrl}}" class="img-fluid rounded" alt="photo de profil">
+<div>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <img src="{{col.photoUrl}}" class="img-fluid rounded" alt="photo de profil">
+    </div>
+    <div class="col-12 col-md-8">
+      <div class="row">
+        <div class="col">
+          <p>Matricule :</p>
+        </div>
+        <div class="col">
+          <p>{{col.matricule}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Nom :</p>
+        </div>
+        <div class="col">
+          <p>{{col.nom | uppercase}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Prenom : </p>
+        </div>
+        <div class="col">
+          <p>{{col.prenoms}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p >Date de naissance : </p>
+        </div>
+        <div class="col">
+          <p>{{col.dateDeNaissance | date : 'mediumDate'}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Email : </p>
+        </div>
+        <div *ngIf="!modif" class="col">
+          <p>{{col.email}}</p>
+        </div>
+        <div *ngIf="modif" class="col">
+          <input type="text" id="email" name="email">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p>PhotoUrl : </p>
+        </div>
+        <div *ngIf="!modif" class="col">
+          <p>{{col.photoUrl}}</p>
+        </div>
+        <div *ngIf="modif" class="col">
+          <input type="text" id="photo" name="photo">
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="col-12 col-md-8">
-    <div class="row">
-      <div class="col">
-        <p>Matricule :</p>
-      </div>
-      <div class="col">
-        <p>{{col.matricule}}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p>Nom :</p>
-      </div>
-      <div class="col">
-        <p>{{col.nom | uppercase}}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p>Prenom : </p>
-      </div>
-      <div class="col">
-        <p>{{col.prenoms}}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p >Date de naissance : </p>
-      </div>
-      <div class="col">
-        <p>{{col.dateDeNaissance | date : 'mediumDate'}}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p>Email : </p>
-      </div>
-      <div *ngIf="!modif" class="col">
-        <p>{{col.email}}</p>
-      </div>
-      <div *ngIf="modif" class="col">
-        <input type="text" id="email" name="email">
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col">
-        <p>PhotoUrl : </p>
-      </div>
-      <div *ngIf="!modif" class="col">
-        <p>{{col.photoUrl}}</p>
-      </div>
-      <div *ngIf="modif" class="col">
-        <input type="text" id="email" name="email">
-      </div>
-    </div>
-
+  <!--Boutons-->
+  <div>
+      <button *ngIf="!modif" class="btn btn-outline-secondary mr-2" (click)="modifier()">Modifier</button>
+      <button *ngIf="modif" class="btn btn-outline-secondary mr-2" (click)="valider()">Valider</button>
   </div>
 </div>
 
-<!--Boutons-->
-<div class="row">
-  <div class="col">
-    <button *ngIf="!modif" class="btn btn-outline-secondary mr-2" (click)="modifier()">Modifier</button>
-    <button *ngIf="modif" class="btn btn-outline-secondary mr-2" (click)="valider()">Valider</button>
-  </div>
-  <div *ngIf="!modif" class="col">
-    <button class="btn btn-outline-secondary mr-2" (click)="nouveauCollegue()">Créer un nouveau collègue</button>
-  </div>
-</div>
+
 
