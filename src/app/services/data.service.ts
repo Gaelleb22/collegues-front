@@ -1,3 +1,4 @@
+import { Photo } from './../models/Photo';
 import { NouveauCollegue } from './../models/NouveauCollegue';
 import { Collegue } from './../models/Collegue';
 import { Injectable } from '@angular/core';
@@ -10,6 +11,7 @@ import {Observable, Subject} from 'rxjs';
 export class DataService {
 
   subjectCollegueSelectionne = new Subject<Collegue>();
+  subjectMatriculeSelectionne = new Subject<string>();
 
   constructor(private _http: HttpClient) { }
 
@@ -19,6 +21,10 @@ export class DataService {
 
   recupererCollegueCourant(matricule: string): Observable<Collegue>{
     return this._http.get<Collegue>(`https://gaelle-collegues-api.herokuapp.com/collegues/${matricule}`);
+  }
+
+  recupererPhotos(): Observable<Photo[]>{
+    return this._http.get<Photo[]>(`https://gaelle-collegues-api.herokuapp.com/collegues/photos`);
   }
 
   creerNouveauCollegue(collegue: NouveauCollegue): void{
@@ -36,6 +42,7 @@ export class DataService {
       console.log(data);
     }, (error: HttpErrorResponse) => {
       console.log('error', error);
+      alert('Veuillez remplir tous les champs');
     });
   }
 
@@ -46,4 +53,5 @@ export class DataService {
   sabonnerACollegueSelect(): Observable<Collegue> {
     return this.subjectCollegueSelectionne.asObservable();
   }
+
 }

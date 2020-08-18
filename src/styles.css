@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-h1, p, li, h5 {
+h1, h2, p, li, h5 {
   font-family: cursive;
 }
 
@@ -10,3 +10,4 @@ button#select {
   font-family: cursive;
   border: transparent;
 }
+

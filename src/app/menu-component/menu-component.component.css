@@ -1,0 +1,9 @@
+.active-link{
+  background-color: seagreen;
+  color: white;
+}
+button {
+  border-radius: 5px;
+  border-color: transparent;
+  margin: 10px;
+}

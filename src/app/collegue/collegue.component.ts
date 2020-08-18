@@ -21,10 +21,6 @@ export class CollegueComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.collegueSub = this._srv.recupererCollegueCourant('eca4db54-96fd-428a-8ae4-749d720f65d9').subscribe(
-      valeur => {
-        this.col = valeur[0]; }
-    );
     this.collegueSub = this._srv.sabonnerACollegueSelect().subscribe(
       collegue => this.col = collegue
     );

@@ -43,6 +43,7 @@ export class RechercheParNomComponent implements OnInit {
 
   select(collegue: Collegue): void {
     this._srv.selectionner(collegue);
+    this.recherche = false;
   }
 
 }

@@ -1,0 +1,12 @@
+<div *ngIf="listePhotos">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let photo of listePhotos">
+      <div class="card">
+        <a routerLink="{{photo.matricule}}">
+          <img src="{{photo.photoUrl}}" alt="{{photo.matricule}}" class="card-img-top">
+        </a>
+      </div>
+
+    </div>
+</div>
+</div>
