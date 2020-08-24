@@ -1,7 +1,7 @@
 ## Desciption
 
 Application de gestion des collègues créé dans le cadre d'une formation Java Full Stack DevOps. Celle-ci permet de rechercher un collègue d'après son nom ou à travers la galerie, d'afficher les détails le concernant et de créer un nouveau collègue.
-Les données de l'application sont gérées par la web-api "collegues-api" déployée sur Heroku. La partie front-end présente ici repose sur une application Angular consrtuite à partir de Travis.
+Les données de l'application sont gérées par la web-api "collegues-api" déployée sur Heroku. La partie front-end présente ici repose sur une application Angular construite à partir de Travis.
 
 ## Build
 
